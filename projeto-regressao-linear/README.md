@@ -1,62 +1,79 @@
-# 📈 Regressão Linear: prevendo notas pelas horas de estudo
+# 📈 Linear Regression: Predicting Grades from Study Hours
 
-Projeto iniciante de Machine Learning em Python. O modelo aprende a relação entre **horas de estudo** e **nota na prova** usando Regressão Linear.
+Beginner Machine Learning project in Python. The model learns the relationship between **study hours** and **exam grades** using Linear Regression.
 
-## O que o projeto usa
+## What the Project Uses
 
-- **pandas**: carregar e explorar os dados
-- **scikit-learn**: `train_test_split`, `LinearRegression` e métricas
-- **matplotlib**: gráficos dos resultados
+* **pandas**: load and explore the data
+* **scikit-learn**: `train_test_split`, `LinearRegression`, and evaluation metrics
+* **matplotlib**: visualize the results
 
-## Estrutura
+## Project Structure
 
-```
-├── data/estudo_notas.csv   # dataset (200 linhas)
-├── gerar_dados.py          # gera o dataset fictício
-├── main.py                 # treina, avalia e plota
+```text
+├── data/study_grades.csv   # dataset (200 rows)
+├── generate_data.py        # generates the fictional dataset
+├── main.py                 # trains, evaluates, and plots the model
 ├── requirements.txt
-└── resultado.png           # gráficos gerados
+└── result.png              # generated charts
 ```
 
-## Como rodar
+## How to Run
 
 ```bash
 pip install -r requirements.txt
-python gerar_dados.py   # opcional, o CSV já está incluído
+python generate_data.py   # optional, the CSV is already included
 python main.py
 ```
 
-## Como funciona
+## How It Works
 
-1. Carrega o CSV com pandas
-2. Separa `X` (horas de estudo) e `y` (nota)
-3. Divide em 80% treino e 20% teste com `train_test_split`
-4. Treina o `LinearRegression` nos dados de treino
-5. Avalia nos dados de teste (que o modelo nunca viu)
-6. Plota a reta do modelo e o gráfico real vs previsto
+1. Loads the CSV file using pandas
+2. Separates `X` (study hours) and `y` (grade)
+3. Splits the data into 80% training and 20% testing using `train_test_split`
+4. Trains the `LinearRegression` model on the training data
+5. Evaluates the model on test data that the model has never seen
+6. Plots the regression line and the actual vs. predicted results
 
-## Resultados
+## Results
 
-| Métrica | Valor |
-|---|---|
-| R² | ~92% |
-| MAE | ~4,2 pontos |
-| RMSE | ~5,2 pontos |
+| Metric | Value       |
+| ------ | ----------- |
+| R²     | ~92%        |
+| MAE    | ~4.2 points |
+| RMSE   | ~5.2 points |
 
-Equação aprendida: `nota ≈ 30 + 6,5 × horas_estudo`
+Learned equation:
 
-![Resultado](resultado.png)
+```text
+grade ≈ 30 + 6.5 × study_hours
+```
 
-## Sobre "acurácia" em regressão
+![Result](result.png)
 
-Acurácia (% de acertos) é uma métrica de **classificação**. Em regressão, o valor previsto é um número contínuo, então usamos:
+## About "Accuracy" in Regression
 
-- **R²**: quanto da variação da nota o modelo explica (quanto mais perto de 100%, melhor)
-- **MAE**: erro médio, em pontos de nota
-- **RMSE**: parecido com o MAE, mas pune mais os erros grandes
+Accuracy (%) is mainly used for **classification** problems.
 
-## Próximos passos
+In regression, the model predicts continuous numerical values, so we use metrics such as:
 
-- Usar várias variáveis (regressão linear múltipla)
-- Testar com um dataset real (ex.: preços de casas)
-- Comparar com outros modelos (Ridge, Random Forest)
+* **R²**: measures how much of the variation in the grades the model explains. Closer to 100% generally means the model explains more of the variation.
+* **MAE**: the average prediction error, measured in grade points.
+* **RMSE**: similar to MAE, but gives more weight to larger errors.
+
+## What I Learned
+
+Through this project, I learned the fundamentals of **Linear Regression** and how a Machine Learning model can learn relationships between numerical variables.
+
+I learned how to:
+
+* Load and explore datasets using **pandas**
+* Separate input features (`X`) from the target (`y`)
+* Split data into training and testing sets
+* Train a Linear Regression model using **scikit-learn**
+* Make predictions with a trained model
+* Evaluate regression models using **R², MAE, and RMSE**
+* Visualize predictions and regression lines using **matplotlib**
+* Understand the difference between **classification and regression**
+* Understand why accuracy is not the main metric for regression problems
+* Build a complete Machine Learning project from data preparation to evaluation
